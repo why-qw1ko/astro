@@ -1,42 +1,11 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Greeting from '../components/Greeting';
 const pageTitle = "首页";
 ---
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <a href="/">首页</a>
-    <a href="/about/">关于</a>
-    <a href="/blog/">博客</a>
-    <h1>{pageTitle}</h1>
-    <table border="1">
-      <tr>
-        <th>姓名</th>
-        <th>年龄</th>
-        <th>职业</th>
-      </tr>
-      <tr>
-        <td>张三</td>
-        <td>28</td>
-        <td>工程师</td>
-      </tr>
-      <tr>
-        <td>李四</td>
-        <td>34</td>
-        <td>设计师</td>
-      </tr>
-      <tr>
-        <td>王五</td>
-        <td>45</td>
-        <td>经理</td>
-      </tr>
-    </table>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>我超棒的博客副标题</h2>
+  <!-- <Greeting messages={["Hi", "Hello", "Howdy", "Hey there"]} />  -->
+   <!-- 注水的组件，可以执行JavaScript  -->
+  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+</BaseLayout>
